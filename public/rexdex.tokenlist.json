@@ -1,0 +1,77 @@
+{
+  "name": "REXDEX",
+  "logoURI": "https://swap.rexdex.finance/rexdex_token_list.png",
+  "keywords": ["defi", "rexdex", "yield"],
+  "timestamp": "2021-03-12T03:40:34.305Z",
+  "tokens": [
+    {
+      "chainId": 888,
+      "address": "0x01A2947D9E6F58572028fA9fC6A2511646345841",
+      "name": "REX",
+      "symbol": "REX",
+      "decimals": 18,
+      "logoURI": "https://rexdex-token-list.vercel.app/icon/wanswap/REX.png"
+    },
+    {
+      "chainId": 888,
+      "address": "0xf46F29950116cc374868A981861CA4F942eD7269",
+      "name": "vZOO",
+      "symbol": "vZOO",
+      "decimals": 18,
+      "logoURI": "https://rexdex-token-list.vercel.app/icon/wanswap/vZOO.png"
+    },
+    {
+      "chainId": 888,
+      "address": "0x69a0B487f287d8B41eC1D26bcD11D101C2577A6B",
+      "name": "PLAY",
+      "symbol": "PLAY",
+      "decimals": 18,
+      "logoURI": "https://rexdex-token-list.vercel.app/icon/wanswap/PLAY.png"
+    },
+    {
+      "chainId": 888,
+      "address": "0xe3ae74d1518a76715ab4c7bedf1af73893cd435a",
+      "name": "wanETH",
+      "symbol": "wanETH",
+      "decimals": 18,
+      "logoURI": "https://rexdex-token-list.vercel.app/icon/wanswap/wanETH.png"
+    },
+    {
+      "chainId": 888,
+      "address": "0x50c439b6d602297252505a6799d84ea5928bcfb6",
+      "name": "wanBTC",
+      "symbol": "wanBTC",
+      "decimals": 8,
+      "logoURI": "https://rexdex-token-list.vercel.app/icon/wanswap/wanBTC.png"
+    },
+    {
+      "chainId": 888,
+      "address": "0x11e77e27af5539872efed10abaa0b408cfd9fbbd",
+      "name": "wanUSDT",
+      "symbol": "wanUSDT",
+      "decimals": 6,
+      "logoURI": "https://rexdex-token-list.vercel.app/icon/wanswap/wanUSDT.png"
+    },
+    {
+      "chainId": 888,
+      "address": "0xdabd997ae5e4799be47d6e69d9431615cba28f48",
+      "name": "WWAN",
+      "symbol": "WWAN",
+      "decimals": 18,
+      "logoURI": "https://rexdex-token-list.vercel.app/icon/wanswap/WWAN.png"
+    },
+    {
+      "chainId": 888,
+      "address": "0x52a9cea01c4cbdd669883e41758b8eb8e8e2b34b",
+      "name": "wanUSDC",
+      "symbol": "wanUSDC",
+      "decimals": 6,
+      "logoURI": "https://rexdex-token-list.vercel.app/icon/wanswap/wanUSDC.png"
+    }
+  ],
+  "version": {
+    "major": 1,
+    "minor": 1,
+    "patch": 0
+  }
+}
