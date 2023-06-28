@@ -9,7 +9,7 @@ export const Button = styled.button.attrs<{ warning: boolean }, { backgroundColo
   backgroundColor: warning ? theme.red1 : theme.primary1
 }))`
   padding: 1rem 2rem 1rem 2rem;
-  border-radius:10px;
+  border-radius:6px;
   cursor: pointer;
   user-select: none;
   font-size: 1rem;
@@ -115,7 +115,7 @@ const rotateImg = keyframes`
 `
 
 export const UniTokenAnimated = styled.img`
-  animation: ${rotateImg} 5s cubic-bezier(0.83, 0, 0.17, 1) infinite;
+  /*animation: ${rotateImg} 5s cubic-bezier(0.83, 0, 0.17, 1) infinite;*/
   padding: 2rem 0 0 0;
   filter: drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.15));
 `

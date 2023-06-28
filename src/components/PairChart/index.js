@@ -141,11 +141,11 @@ const OptionButton = styled.div`
   font-weight: 500;
   width: fit-content;
   white-space: nowrap;
-  padding: 6px;
+  padding: 4px;
   border-radius: 6px;
-  border: ${({ active }) => (active ? 'none' : '1px solid #646D70')};
-  background-color: ${({ active }) => active && '#42B5D9'};
-  color: ${({ active }) => (active ? '#fff' : '#646D70')};
+  border: ${({ active }) => (active ? 'none' : '1px solid #04f9f4')};
+  background-color: ${({ active }) => active && '#04f9f4'};
+  color: ${({ active }) => (active ? '#131313' : '#04f9f4')};
 
   :hover {
     cursor: ${({ disabled }) => !disabled && 'pointer'};
@@ -154,10 +154,11 @@ const OptionButton = styled.div`
 
 const ChartWrapper = styled.div`
   height: 100%;
-  max-height: 340px;
+  max-height: 400px;
   @media screen and (max-width: 600px) {
     min-height: 200px;
   }
+  overflow: hidden;
 `
 
 const OptionsRow = styled.div`
@@ -260,7 +261,7 @@ const PairChart = ({ address, base0, base1, positive, currencyIn, currencyOut })
             <CurrencyLogo currency={currencyOut} size={'30px'} />
             <Text>{currencyOut ? currencyOut.symbol : '-'}</Text>
           </PairInfo>
-          <AutoRow justify={isMobile ? 'flex-start' : 'flex-end'} gap="6px">
+          <AutoRow justify={isMobile ? 'flex-start' : 'flex-end'} gap="2px">
             <OptionButton
               active={timeWindow === timeframeOptions.WEEK}
               onClick={() => setTimeWindow(timeframeOptions.WEEK)}

@@ -17,7 +17,7 @@ import { useTranslation } from 'react-i18next'
 const Wrapper = styled.div<{ error: boolean }>`
   background: ${({ theme }) => transparentize(0.6, theme.bg3)};
   padding: 0.75rem;
-  border-radius:10px;
+  border-radius:6px;
 `
 
 const WarningContainer = styled.div`
@@ -26,7 +26,7 @@ const WarningContainer = styled.div`
   padding: 1rem;
   background: rgba(242, 150, 2, 0.05);
   border: 1px solid #f3841e;
-  border-radius:10px;
+  border-radius:6px;
   overflow: auto;
 `
 

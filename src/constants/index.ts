@@ -1,7 +1,7 @@
 import { ChainId, JSBI, Percent, Token, WETH } from '@rexdexwarrior/sdk'
 import { AbstractConnector } from '@web3-react-wan/abstract-connector'
 
-import { walletconnect, metamask } from '../connectors'
+import { metamask } from '../connectors'
 
 export const ROUTER_ADDRESS = '0xB52c57d83E8e56C600b95d301243107902585F8D'
 
@@ -46,11 +46,11 @@ export const TIMELOCK_ADDRESS = '0x1a9C8182C09F50C8318d769245beA52c32BE35BC'
 const UNI_ADDRESS = '0x01A2947D9E6F58572028fA9fC6A2511646345841'
 const UNI_ADDRESS_TESTNET = '0x830053DABd78b4ef0aB0FeC936f8a1135B68da6f'
 export const WASP: { [chainId in ChainId]: Token } = {
-  [ChainId.MAINNET]: new Token(ChainId.MAINNET, UNI_ADDRESS, 18, 'WASP', 'Wanswap'),
-  [ChainId.RINKEBY]: new Token(ChainId.RINKEBY, UNI_ADDRESS_TESTNET, 18, 'WASP', 'Wanswap'),
-  [ChainId.ROPSTEN]: new Token(ChainId.ROPSTEN, UNI_ADDRESS_TESTNET, 18, 'WASP', 'Wanswap'),
-  [ChainId.GÖRLI]: new Token(ChainId.GÖRLI, UNI_ADDRESS_TESTNET, 18, 'WASP', 'Wanswap'),
-  [ChainId.KOVAN]: new Token(ChainId.KOVAN, UNI_ADDRESS_TESTNET, 18, 'WASP', 'Wanswap')
+  [ChainId.MAINNET]: new Token(ChainId.MAINNET, UNI_ADDRESS, 18, 'REX', 'REX'),
+  [ChainId.RINKEBY]: new Token(ChainId.RINKEBY, UNI_ADDRESS_TESTNET, 18, 'REX', 'REX'),
+  [ChainId.ROPSTEN]: new Token(ChainId.ROPSTEN, UNI_ADDRESS_TESTNET, 18, 'REX', 'REX'),
+  [ChainId.GÖRLI]: new Token(ChainId.GÖRLI, UNI_ADDRESS_TESTNET, 18, 'REX', 'REX'),
+  [ChainId.KOVAN]: new Token(ChainId.KOVAN, UNI_ADDRESS_TESTNET, 18, 'REX', 'REX')
 }
 
 export const COMMON_CONTRACT_NAMES: { [address: string]: string } = {
@@ -75,7 +75,7 @@ const WETH_ONLY: ChainTokenList = {
 // used to construct intermediary pairs for trading
 export const BASES_TO_CHECK_TRADES_AGAINST: ChainTokenList = {
   ...WETH_ONLY,
-  [ChainId.MAINNET]: [...WETH_ONLY[ChainId.MAINNET], wanBTC, wanETH, wanUNI, USDC, USDT, wanLINK, WASP[ChainId.MAINNET], wanSUSHI]
+  [ChainId.MAINNET]: [...WETH_ONLY[ChainId.MAINNET], wanBTC, wanETH, wanUNI, USDC, USDT, WASP[ChainId.MAINNET]]
 }
 
 /**
@@ -96,8 +96,8 @@ export const SUGGESTED_BASES: ChainTokenList = {
 
 // used to construct the list of all pairs we consider by default in the frontend
 export const BASES_TO_TRACK_LIQUIDITY_FOR: ChainTokenList = {
-  ...WETH_ONLY,
-  [ChainId.MAINNET]: [...WETH_ONLY[ChainId.MAINNET], wanBTC, wanETH, USDC, USDT, wanLINK, wanUNI, WASP[ChainId.MAINNET], wanSUSHI]
+  ...WETH_ONLY, 
+  [ChainId.MAINNET]: [...WETH_ONLY[ChainId.MAINNET], vZOO, wanBTC, wanETH, USDC, USDT]
 }
 
 export const PINNED_PAIRS: { readonly [chainId in ChainId]?: [Token, Token][] } = {
@@ -136,14 +136,14 @@ const SUPPORTED_WALLETS_CHROME: { [key: string]: WalletInfo } = {
     color: '#E8831D',
     mobile: true
   },
-  WALLET_CONNECT: {
-    connector: walletconnect,
-    name: 'WalletConnect',
-    iconName: 'walletConnectIcon.svg',
-    description: 'Connect to Trust Wallet, Rainbow Wallet and more...',
-    href: null,
-    color: '#4196FC',
-  },
+  // WALLET_CONNECT: {
+  //   connector: walletconnect,
+  //   name: 'WalletConnect',
+  //   iconName: 'walletConnectIcon.svg',
+  //   description: 'Connect to Trust Wallet, Rainbow Wallet and more...',
+  //   href: null,
+  //   color: '#4196FC',
+  // },
 }
 
 const SUPPORTED_WALLETS_IN_WALLET: { [key: string]: WalletInfo } = {

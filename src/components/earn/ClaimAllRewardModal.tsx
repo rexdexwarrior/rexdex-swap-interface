@@ -314,13 +314,13 @@ const ClaimPoolCard = function({
 const RowBetweenCus = styled(RowBetween)`
   border: 1px solid rgba(255, 255, 255, 0.2);
   padding: 1rem;
-  border-radius: 16px;
+  border-radius: 6px;
   flex-direction: column;
 `
 
 const ConWrap = styled.div`
   background: rgba(0, 0, 0, 0);
-  border-radius: 16px;
+  border-radius: 6px;
   padding: 1rem;
   border: 1px solid rgba(255, 255, 255, 0.2);
   margin-bottom: 10px;

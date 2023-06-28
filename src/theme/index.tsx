@@ -59,14 +59,14 @@ export function colors(darkMode: boolean): Colors {
     advancedBG: darkMode ? 'rgba(0,0,0,0.1)' : 'rgba(255,255,255,0.6)',
 
     //primary colors
-    primary1: darkMode ? '#2172E5' : '#ff007a',
+    primary1: darkMode ? '#04E0DB' : '#ff007a',
     primary2: darkMode ? '#3680E7' : '#FF8CC3',
     primary3: darkMode ? '#4D8FEA' : '#FF99C9',
     primary4: darkMode ? '#376bad70' : '#F6DDE8',
     primary5: darkMode ? '#153d6f70' : '#FDEAF1',
 
     // color text
-    primaryText1: darkMode ? '#6da8ff' : '#ff007a',
+    primaryText1: darkMode ? 'white' : '#ff007a',
 
     // secondary colors
     secondary1: darkMode ? '#2172E5' : '#ff007a',
@@ -248,14 +248,55 @@ div[data-reach-dialog-content] a
   color:rgba(255,255,255,0.5) !important;
 }
 
+
+/** Trackbar **/
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #04E0DB #E2ECEE;
+}
+
+/* Chrome, Edge and Safari */
+*::-webkit-scrollbar {
+  width: 8px;
+  width: 8px;
+}
+*::-webkit-scrollbar-track {
+  border-radius: 6px;
+  background-color: #E2ECEE;
+}
+
+*::-webkit-scrollbar-track:hover {
+  background-color: #E2ECEE;
+}
+
+*::-webkit-scrollbar-track:active {
+  background-color: #E2ECEE;
+}
+
+*::-webkit-scrollbar-thumb {
+  border-radius: 6px;
+  background-color: #04E0DB;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background-color: #04CDC9;
+}
+
+*::-webkit-scrollbar-thumb:active {
+  background-color: #04CDC9;
+}
+
 #shadow_bottom
 		{
-			background:url(./images/shadow_bottom.png) repeat-x;
+			background:url(./images/rexdex_bighead.svg) no-repeat center left;
 			width:100%;
-			height:860px;
+			height:500px;
 			position:fixed;
-			bottom:0;
+			top:50vh;
 			z-index:-1;
+      opacity:0.2;
+      transform:rotateY(180deg) translateY(-50%);
     }
     
 @media only screen and (max-width: 960px) {
@@ -294,7 +335,7 @@ div[data-reach-dialog-content] a
 }
 
 div[data-reach-dialog-overlay] {
-  background:rgba(20,30,75,0.80) !important;
+  background:rgba(0, 0, 0, 0.8) !important;
 
 }
 div[data-reach-dialog-content]{

@@ -2,20 +2,20 @@ import { ChainId, TokenAmount } from '@rexdexwarrior/sdk'
 import React, { useMemo } from 'react'
 import { X } from 'react-feather'
 import styled from 'styled-components'
-import tokenLogo from '../../assets/svg/Logomark_WASP_token.svg'
+import tokenLogo from '../../assets/images/rexdex-token.png'
 import { WASP } from '../../constants'
 import { useTotalSupply, useTotalBurned } from '../../data/TotalSupply'
 import { useActiveWeb3React } from '../../hooks'
 // import { useMerkleDistributorContract } from '../../hooks/useContract'
 import useCurrentBlockTimestamp from '../../hooks/useCurrentBlockTimestamp'
-import { useTotalUniEarned } from '../../state/stake/hooks'
-import { useAggregateUniBalance, useTokenBalance } from '../../state/wallet/hooks'
+//import { useTotalUniEarned } from '../../state/stake/hooks'
+import { useAggregateUniBalance } from '../../state/wallet/hooks'
 import { ExternalLink, TYPE, UniTokenAnimated } from '../../theme'
 // import { computeUniCirculation } from '../../utils/computeUniCirculation'
 import useUSDCPrice from '../../utils/useUSDCPrice'
 import { AutoColumn } from '../Column'
 import { RowBetween } from '../Row'
-import { Break, CardBGImage, CardNoise, CardSection, DataCard } from '../earn/styled'
+import { Break,  CardSection, DataCard } from '../earn/styled'
 import { useTranslation } from 'react-i18next'
 
 const ContentWrapper = styled(AutoColumn)`
@@ -23,8 +23,8 @@ const ContentWrapper = styled(AutoColumn)`
 `
 
 const ModalUpper = styled(DataCard)`
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-  background: radial-gradient(90% 90% at 0% 0%,#41beec 0%,#123471 100%);
+box-shadow: 0px 1px 56px rgba(0,0,0,1);
+  background: #212429;
   padding: 0.5rem;
 `
 
@@ -48,12 +48,15 @@ export default function UniBalanceContent({ setShowUniBalanceModal }: { setShowU
   const { t } = useTranslation()
 
   const total = useAggregateUniBalance()
-  const uniBalance: TokenAmount | undefined = useTokenBalance(account ?? undefined, uni)
-  const uniToClaim: TokenAmount | undefined = useTotalUniEarned()
+  // const uniBalance: TokenAmount | undefined = useTokenBalance(account ?? undefined, uni)
+  // const uniToClaim: TokenAmount | undefined = useTotalUniEarned()
 
   const totalSupply: TokenAmount | undefined = useTotalSupply(uni)
   const totalBurned: TokenAmount | undefined = useTotalBurned(uni)
   const uniPrice = useUSDCPrice(uni)
+
+  //console.log(uniPrice)
+  console.log('uniPrice',uniPrice)
   const blockTimestamp = useCurrentBlockTimestamp()
   // const unclaimedUni = useTokenBalance(useMerkleDistributorContract()?.address, uni)
   const circulation: TokenAmount | undefined = useMemo(
@@ -75,8 +78,7 @@ export default function UniBalanceContent({ setShowUniBalanceModal }: { setShowU
   return (
     <ContentWrapper gap="lg">
       <ModalUpper>
-        <CardBGImage />
-        <CardNoise />
+        
         <CardSection gap="md">
           <RowBetween>
             <TYPE.white color="white">{t('breakdown')}</TYPE.white>
@@ -93,7 +95,7 @@ export default function UniBalanceContent({ setShowUniBalanceModal }: { setShowU
                   {total?.toFixed(2, { groupSeparator: ',' })}
                 </TYPE.white>
               </AutoColumn>
-              <AutoColumn gap="md">
+              {/* <AutoColumn gap="md">
                 <RowBetween>
                   <TYPE.white color="white">{t('balance2')}</TYPE.white>
                   <TYPE.white color="white">{uniBalance?.toFixed(2, { groupSeparator: ',' })}</TYPE.white>
@@ -101,10 +103,10 @@ export default function UniBalanceContent({ setShowUniBalanceModal }: { setShowU
                 <RowBetween>
                   <TYPE.white color="white">{t('unclaimed')}:</TYPE.white>
                   <TYPE.white color="white">
-                    {uniToClaim?.toFixed(2, { groupSeparator: ',' })}{' '}
+                    {uniToClaim?.toFixed(8, { groupSeparator: ',' })}{' '}
                   </TYPE.white>
                 </RowBetween>
-              </AutoColumn>
+              </AutoColumn> */}
             </CardSection>
             <Break />
           </>
@@ -128,15 +130,12 @@ export default function UniBalanceContent({ setShowUniBalanceModal }: { setShowU
               <TYPE.white color="white">{totalSupply?.toFixed(0, { groupSeparator: ',' })}</TYPE.white>
             </RowBetween> */}
             <RowBetween>
-              <TYPE.white color="white">WASP Token Address(WRC20):</TYPE.white>
-              <TYPE.white color="white"><a href="https://www.wanscan.org/token/0x8b9f9f4aa70b1b0d586be8adfb19c1ac38e05e9a">0x8b9f...5e9a</a></TYPE.white>
+              <TYPE.white color="white">REX Token Address(WRC20):</TYPE.white>
+              <TYPE.white color="white"><a href="https://www.wanscan.org/token/0x01A2947D9E6F58572028fA9fC6A2511646345841">0x01A2...5841</a></TYPE.white>
             </RowBetween>
-            <RowBetween>
-              <TYPE.white color="white">WASP Token Address(ERC20 on Moonriver):</TYPE.white>
-              <TYPE.white color="white"><a href="https://moonriver.moonscan.io/token/0xffef2639b2ee39f9c284d0107e567dd2f7b20613">0xffef...0613</a></TYPE.white>
-            </RowBetween>
+           
             {uni && uni.chainId === ChainId.MAINNET ? (
-              <ExternalLink href={`https://info.wanswap.finance/token/0x8b9f9f4aa70b1b0d586be8adfb19c1ac38e05e9a`}>View WASP Statistics</ExternalLink>
+              <ExternalLink href={`https://info.rexdex.finance/token/0x8b9f9f4aa70b1b0d586be8adfb19c1ac38e05e9a`}>View REX Statistics</ExternalLink>
             ) : null}
           </AutoColumn>
         </CardSection>

@@ -28,7 +28,7 @@ const CurrencySelect = styled.button<{ selected: boolean }>`
   background-color: ${({ selected, theme }) => (selected ? '#04f9f4' : '#04f9f4')};
   color: ${({ selected, theme }) => (selected ? 'black' : theme.white)};
   border-radius:6px;
-  box-shadow: ${({ selected }) => (selected ? 'none' : '0px 6px 10px rgba(0, 0, 0, 0.075)')};
+  box-shadow: ${({ selected }) => (selected ? 'none' : '0px 1px 56px rgba(0,0,0,1);')};
   outline: none;
   cursor: pointer;
   user-select: none;
@@ -89,7 +89,7 @@ const Container = styled.div<{ hideInput: boolean }>`
 const StyledTokenName = styled.span<{ active?: boolean }>`
   ${({ active }) => (active ? '  margin: 0 0.25rem 0 0.75rem;' : '  margin: 0 0.25rem 0 0.25rem;')}
   font-size:  ${({ active }) => (active ? '20px' : '16px')};
-  color:  ${({ active }) => (active ? '#313131' : '#fff')};
+  color:  ${({ active }) => (active ? '#313131' : '#313131')};
   margin-left:5px;
 `
 

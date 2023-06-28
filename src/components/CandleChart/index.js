@@ -155,12 +155,12 @@ const CandleStickChart = ({
       })
 
       const candleSeries = chart.addCandlestickSeries({
-        upColor: 'green',
-        downColor: 'red',
-        borderDownColor: 'red',
-        borderUpColor: 'green',
-        wickDownColor: 'red',
-        wickUpColor: 'green'
+        upColor: '#04f9f4',
+        downColor: '#f90409',
+        borderDownColor: '#f90409',
+        borderUpColor: '#04f9f4',
+        wickDownColor: '#f90409',
+        wickUpColor: '#04f9f4'
       })
 
       candleSeries.setData(formattedData)

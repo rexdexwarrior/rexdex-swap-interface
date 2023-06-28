@@ -89,20 +89,20 @@ export function Countdown({ exactEnd, exactStart }: { exactEnd?: Date; exactStar
 const SpanFinished = styled.span`
   background: #d15458;
   padding: 5px 10px;
-  border-radius: 15px;
+  border-radius: 6px;
   font-size: 10px;
 `;
 
 const SpanActive = styled.span`
 background: #54d186;
 padding: 5px 10px;
-border-radius: 15px;
+border-radius: 6px;
 font-size: 10px;
 `;
 
 const SpanPending = styled.span`
 background: #1a4b80;
 padding: 5px 10px;
-border-radius: 15px;
+border-radius: 6px;
 font-size: 10px;
 `;

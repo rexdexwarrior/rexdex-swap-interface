@@ -269,7 +269,7 @@ const InputCom = styled.input`
   outline: none;
   padding: 0 10px;
   color: #fff;
-  border-radius: 8px;
+  border-radius: 6px;
   background: #1c304a;
   border: 1px solid rgba(255, 255, 255, 0.2);
   background-image: url(${searchImg});

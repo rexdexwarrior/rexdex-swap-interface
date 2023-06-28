@@ -4,7 +4,7 @@ import { animated, useTransition, useSpring } from 'react-spring'
 import { DialogOverlay, DialogContent } from '@reach/dialog'
 import { isMobile } from 'react-device-detect'
 import '@reach/dialog/styles.css'
-import { transparentize } from 'polished'
+//import { transparentize } from 'polished'
 import { useGesture } from 'react-use-gesture'
 
 const AnimatedDialogOverlay = animated(DialogOverlay)
@@ -37,7 +37,7 @@ const StyledDialogContent = styled(({ bg, minHeight, maxHeight, mobile, isOpen, 
     margin: 0 0 2rem 0;
     border: ${({ enlarge, border }) => border ? border : enlarge ? "1px solid #61696C" : "none"};
     background-color: ${({ theme }) => theme.bg1};
-    box-shadow: 0 4px 8px 0 ${({ theme }) => transparentize(0.95, theme.shadow1)};
+    box-shadow: 0px 1px 56px rgba(0,0,0,1);
     padding: 0px;
     width: 50vw;
     overflow-y: ${({ mobile }) => (mobile ? 'scroll' : 'hidden')};
@@ -57,7 +57,7 @@ const StyledDialogContent = styled(({ bg, minHeight, maxHeight, mobile, isOpen, 
         min-height: ${minHeight}vh;
       `}
     display: flex;
-    border-radius:10px;
+    border-radius:6px;
     ${({ theme }) => theme.mediaWidth.upToMedium`
       width: 65vw;
       margin: 0;
@@ -73,7 +73,7 @@ const StyledDialogContent = styled(({ bg, minHeight, maxHeight, mobile, isOpen, 
       ${mobile &&
         css`
           width: 100vw;
-          border-radius:10px;
+          border-radius:6px;
           border-bottom-left-radius: 0;
           border-bottom-right-radius: 0;
         `}

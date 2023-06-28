@@ -297,7 +297,7 @@ export function useDefaultsFromURLSearch():
       parsedQs.outputCurrency = '0xf46F29950116cc374868A981861CA4F942eD7269' // vZOO
     }
     const parsed = queryParametersToSwapState(parsedQs)
-    console.log('parsedQs',parsed)
+    //console.log('parsedQs',parsed)
     dispatch(
       replaceSwapState({
         typedValue: parsed.typedValue,

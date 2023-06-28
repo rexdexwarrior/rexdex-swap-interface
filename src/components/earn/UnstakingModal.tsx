@@ -308,7 +308,7 @@ const MaxButtonCus = styled(MaxButton)`
   color: #fff;
   margin: 0;
   font-weight: bold;
-  border-radius: 18px;
+  border-radius: 6px;
   :hover {
     background-color: #FFE600;
     outline: none;
@@ -362,7 +362,7 @@ const RowBetweenCus1 = styled(RowBetween)`
 
 const RowBetweenCus2 = styled(RowBetween)`
   background-color: #1A3D77;
-  border-radius: 10px;
+  border-radius: 6px;
 `
 
 // const Bg = styled.div`

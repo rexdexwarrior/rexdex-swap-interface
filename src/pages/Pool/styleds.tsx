@@ -13,9 +13,9 @@ export const ClickableText = styled(Text)`
 `
 export const MaxButton = styled.button<{ width: string }>`
   padding: 0.5rem 1rem;
-  background-color: ${({ theme }) => theme.primary5};
-  border: 1px solid ${({ theme }) => theme.primary5};
-  border-radius: 10px;
+  background-color: transparent;
+  border: 2px solid #04E0DB;
+  border-radius: 6px;
   font-size: 1rem;
   ${({ theme }) => theme.mediaWidth.upToSmall`
     padding: 0.25rem 0.5rem;
@@ -26,10 +26,11 @@ export const MaxButton = styled.button<{ width: string }>`
   overflow: hidden;
   color: ${({ theme }) => theme.primary1};
   :hover {
-    border: 1px solid ${({ theme }) => theme.primary1};
+    border: 2px solid #04E0DB;
+    background-color: #04E0DB20;
   }
   :focus {
-    border: 1px solid ${({ theme }) => theme.primary1};
+    border: 2px solid #04E0DB;
     outline: none;
   }
 `

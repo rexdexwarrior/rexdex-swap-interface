@@ -22,7 +22,7 @@ import Menu from '../Menu'
 
 import Row, { RowFixed } from '../Row'
 import Web3Status from '../Web3Status'
-import ClaimModal from '../claim/ClaimModal'
+//import ClaimModal from '../claim/ClaimModal'
 import { useToggleSelfClaimModal, useShowClaimPopup } from '../../state/application/hooks'
 import { useUserHasAvailableClaim } from '../../state/claim/hooks'
 import { useUserHasSubmittedClaim } from '../../state/transactions/hooks'
@@ -32,6 +32,7 @@ import UniBalanceContent from './UniBalanceContent'
 import usePrevious from '../../hooks/usePrevious'
 import useUSDCPrice from '../../utils/useUSDCPrice'
 import { WASP } from '../../constants'
+import useUniPrice from '../../utils/useUniPrice'
 
 interface AddEthereumChainParameter {
   chainId: string; // A 0x-prefixed hexadecimal string
@@ -95,7 +96,7 @@ const HeaderControls = styled.div`
     width: 100%;
     z-index: 99;
     height: 72px;
-    border-radius: 10px 10px 0 0;
+    border-radius: 6px 6px 0 0;
     background-color: ${({ theme }) => theme.bg1};
   `};
 `
@@ -142,7 +143,7 @@ const AccountElement = styled.div<{ active: boolean }>`
   flex-direction: row;
   align-items: center;
   background-color: ${({ theme, active }) => (!active ? theme.bg1 : theme.bg3)};
-  border-radius:10px;
+  border-radius:6px;
   white-space: nowrap;
   width: 100%;
   cursor: pointer;
@@ -160,8 +161,8 @@ const UNIAmount = styled(AccountElement)`
   padding: 4px 8px;
   height: 36px;
   font-weight: 500;
-  background-color: ${({ theme }) => theme.bg3};
-  background: #FFE600;
+  background-color: #04f9f4;
+  background: #04f9f4;
 `
 
 const UNIWrapper = styled.span`
@@ -186,7 +187,7 @@ const HideSmall = styled.span`
 `
 
 const NetworkCard = styled(YellowCard)`
-  border-radius: 10px;
+  border-radius: 6px;
   padding: 8px 12px;
   background: white;
   ${({ theme }) => theme.mediaWidth.upToSmall`
@@ -234,7 +235,7 @@ const StyledNavLink = styled(NavLink).attrs({
 })`
   ${({ theme }) => theme.flexRowNoWrap}
   align-items: left;
-  border-radius: 10px;
+  border-radius: 6px;
   outline: none;
   cursor: pointer;
   text-decoration: none;
@@ -245,7 +246,7 @@ const StyledNavLink = styled(NavLink).attrs({
   font-weight: 500;
 
   &.${activeClassName} {
-    border-radius:10px;
+    border-radius:6px;
     font-weight: 600;
     color: ${({ theme }) => theme.text1};
   }
@@ -261,7 +262,7 @@ const StyledExternalLink = styled(ExternalLink).attrs({
 }) <{ isActive?: boolean }>`
   ${({ theme }) => theme.flexRowNoWrap}
   align-items: left;
-  border-radius:10px;
+  border-radius:6px;
   outline: none;
   cursor: pointer;
   text-decoration: none;
@@ -272,7 +273,7 @@ const StyledExternalLink = styled(ExternalLink).attrs({
   font-weight: 500;
 
   &.${activeClassName} {
-    border-radius: 10px;
+    border-radius: 6px;
     font-weight: 600;
     color: ${({ theme }) => theme.text1};
   }
@@ -293,7 +294,7 @@ const StyledExternalLinkMobile = styled(ExternalLink).attrs({
 }) <{ isActive?: boolean }>`
   ${({ theme }) => theme.flexRowNoWrap}
   align-items: left;
-  border-radius:10px;
+  border-radius:6px;
   outline: none;
   cursor: pointer;
   text-decoration: none;
@@ -304,7 +305,7 @@ const StyledExternalLinkMobile = styled(ExternalLink).attrs({
   font-weight: 500;
   display:none;
   &.${activeClassName} {
-    border-radius: 10px;
+    border-radius: 6px;
     font-weight: 600;
     color: ${({ theme }) => theme.text1};
   }
@@ -332,6 +333,9 @@ export default function Header() {
   const { t } = useTranslation()
 
   const uniPrice = useUSDCPrice(chainId ? WASP[chainId] : undefined)
+
+  const uniPrice2 = useUniPrice();
+  console.log('Rex Price',uniPrice2)
 
   const userEthBalance = useETHBalances(account ? [account] : [])?.[account ?? '']
 
@@ -381,17 +385,18 @@ export default function Header() {
 
   return (
     <HeaderFrame>
-      <ClaimModal />
+      {/* <ClaimModal /> */}
       <Modal isOpen={showUniBalanceModal} onDismiss={() => setShowUniBalanceModal(false)}>
         <UniBalanceContent setShowUniBalanceModal={setShowUniBalanceModal} />
       </Modal>
-      <img id="logo-full" style={{ display: 'none' }} height={'60px'} src="./images/Logo_Whiteyellow.svg" alt="logo" />
+      <img id="logo-full" style={{ display: 'none', cursor:'pointer' }} height={'60px'} src={Logo} alt="logo" onClick={()=>{
+        window.location.href = 'https://rexdex.finance'
+      }}/>
       <HeaderRow>
 
-        <Title href="." id="logo-wrapper">
+        <Title href="https://rexdex.finance" id="logo-wrapper">
           <UniIcon>
             <img id="logo-symbol" width={'128px'} src={Logo} alt="logo" />
-
           </UniIcon>
         </Title>
         <HeaderLinks>
@@ -409,7 +414,8 @@ export default function Header() {
               pathname.startsWith('/find')
             }
           >
-            {t('pool')}
+            Pool
+            {/* {t('pool')} */}
           </StyledNavLink>
           
           <StyledExternalLink id={`stake-nav-link`} href={'https://info.rexdex.finance'}>
@@ -432,7 +438,7 @@ export default function Header() {
       </HeaderRow>
       <HeaderRowMobile>
         <HeaderLinks>
-          <StyledExternalLinkMobile id={`stake-nav-link`} href={'https://info.wanswap.finance'}>
+          <StyledExternalLinkMobile id={`stake-nav-link`} href={'https://info.rexdex.finance'}>
             {t('statistics')} <span style={{ fontSize: '11px' }}>↗</span>
           </StyledExternalLinkMobile>
         </HeaderLinks>
@@ -495,11 +501,11 @@ export default function Header() {
                       </TYPE.white>
                     </HideSmall>
                   )
-                  :
-                  <img style={{ marginLeft: '-10px', marginRight: '5px' }} height={'52px'} src="./images/Logomark_WASP_token.svg" alt="logo" />
+                  :<></>
+                  // <img style={{ marginLeft: '-10px', marginRight: '5px' }} height={'52px'} src="./images/Logomark_WASP_token.svg" alt="logo" />
 
                 }
-                WASP
+                REX
               </UNIAmount>
               <CardNoise />
               <PriceText>${uniPrice?.toFixed(4) ?? '-'}</PriceText>
@@ -528,13 +534,13 @@ const PriceText = styled.div`
   z-index: -1;
   margin-left: -12px;
   background-color: #2c2f36;
-  border: 1px solid #ffe400;
+  border: 1px solid #04f9f4;
   padding: 0 8px 0 20px;
-  color: #ffe400;
+  color: #04f9f4;
   font-size: 16px;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  border-radius: 8px;
+  border-radius: 6px;
 `

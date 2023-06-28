@@ -287,7 +287,7 @@ export function useTotalUniEarned(): TokenAmount | undefined {
   const { chainId } = useActiveWeb3React()
   const uni = chainId ? WASP[chainId] : undefined
   const stakingInfos = useStakingInfo()
-
+  console.log('stakingInfos',stakingInfos)
   return useMemo(() => {
     if (!uni) return undefined
     return (

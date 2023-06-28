@@ -30,7 +30,7 @@ const StatContainer = styled.div`
 `
 
 const Wrapper = styled(AutoColumn)<{ showBackground: boolean; bgColor: any }>`
-border-radius:10px;
+border-radius:6px;
   width: 100%;
   overflow: hidden;
   position: relative;
@@ -40,8 +40,7 @@ border-radius:10px;
 
   ${({ showBackground }) =>
     showBackground &&
-    `  box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.01), 0px 4px 8px rgba(0, 0, 0, 0.04), 0px 16px 24px rgba(0, 0, 0, 0.04),
-    0px 24px 32px rgba(0, 0, 0, 0.01);`}
+    `  box-shadow: 0px 1px 56px rgba(0,0,0,1);`}
 `
 
 const TopSection = styled.div`
@@ -90,7 +89,7 @@ const BottomSection = styled.div<{ showBackground: boolean }>`
 const Multiplier = styled.span`
 font-weight: 500;
     text-align: center;
-    border-radius: 5px;
+    border-radius: 6px;
 
     margin-left: 10px;
     padding: 0px 5px;

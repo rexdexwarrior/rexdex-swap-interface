@@ -17,8 +17,8 @@ import { unwrappedToken } from '../../utils/wrappedCurrency'
 import { ButtonPrimary, 
   // ButtonSecondary, 
   ButtonEmpty } from '../Button'
-import { transparentize } from 'polished'
-import { CardNoise } from '../earn/styled'
+//import { transparentize } from 'polished'
+//import { CardNoise } from '../earn/styled'
 
 import { useColor } from '../../hooks/useColor'
 
@@ -37,13 +37,12 @@ export const FixedHeightRow = styled(RowBetween)`
 export const HoverCard = styled(Card)`
   border: 1px solid transparent;
   :hover {
-    border: 1px solid ${({ theme }) => darken(0.06, theme.bg2)};
+    border: 1px solid ${({ theme }) => darken(0.06, 'rgb(45,66,69)')};
   }
 `
 const StyledPositionCard = styled(LightCard)<{ bgColor: any }>`
-  border: none;
-  background: ${({ theme, bgColor }) =>
-    `radial-gradient(91.85% 100% at 1.84% 0%, ${transparentize(0.8, bgColor)} 0%, ${theme.bg3} 100%) `};
+  border: 1px solid rgb(45,66,69);
+  background: transparent;
   position: relative;
   overflow: hidden;
 `
@@ -87,7 +86,7 @@ export function MinimalPositionCard({ pair, showUnwrapped = false, border }: Pos
   return (
     <>
       {userPoolBalance && JSBI.greaterThan(userPoolBalance.raw, JSBI.BigInt(0)) ? (
-        <GreyCard style={{background:'rgb(26,61,119)'}} border={border}>
+        <GreyCard border={border}>
           <AutoColumn gap="12px">
             <FixedHeightRow>
               <RowFixed>
@@ -196,8 +195,7 @@ export default function FullPositionCard({ pair, border }: PositionCardProps) {
   const backgroundColor = useColor(pair?.token0)
 
   return (
-    <StyledPositionCard border={border} bgColor={backgroundColor} style={{background:'#123471'}}>
-      <CardNoise />
+    <StyledPositionCard border={border} bgColor={backgroundColor}>
       <AutoColumn gap="12px">
         <FixedHeightRow>
           <RowFixed>

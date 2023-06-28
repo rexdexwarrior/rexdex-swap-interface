@@ -50,6 +50,7 @@ export function useDerivedMintInfo(
   )
   let tokenA = currencies[Field.CURRENCY_A];
   let tokenB = currencies[Field.CURRENCY_B];
+
   // pair
   const pairRet = usePair(tokenA, tokenB)
   const [pairState, pair] = pairRet

@@ -2,7 +2,7 @@
   "name": "REXDEX",
   "logoURI": "https://swap.rexdex.finance/rexdex_token_list.png",
   "keywords": ["defi", "rexdex", "yield"],
-  "timestamp": "2021-03-12T03:40:34.305Z",
+  "timestamp": "2023-06-26T00:00:00.305Z",
   "tokens": [
     {
       "chainId": 888,
@@ -10,7 +10,7 @@
       "name": "REX",
       "symbol": "REX",
       "decimals": 18,
-      "logoURI": "https://rexdex-token-list.vercel.app/icon/wanswap/REX.png"
+      "logoURI": "https://assets.rexdex.finance/icon/wanswap/REX.png"
     },
     {
       "chainId": 888,
@@ -18,7 +18,7 @@
       "name": "vZOO",
       "symbol": "vZOO",
       "decimals": 18,
-      "logoURI": "https://rexdex-token-list.vercel.app/icon/wanswap/vZOO.png"
+      "logoURI": "https://assets.rexdex.finance/icon/wanswap/vZOO.png"
     },
     {
       "chainId": 888,
@@ -26,7 +26,7 @@
       "name": "PLAY",
       "symbol": "PLAY",
       "decimals": 18,
-      "logoURI": "https://rexdex-token-list.vercel.app/icon/wanswap/PLAY.png"
+      "logoURI": "https://assets.rexdex.finance/icon/wanswap/PLAY.png"
     },
     {
       "chainId": 888,
@@ -34,7 +34,7 @@
       "name": "wanETH",
       "symbol": "wanETH",
       "decimals": 18,
-      "logoURI": "https://rexdex-token-list.vercel.app/icon/wanswap/wanETH.png"
+      "logoURI": "https://assets.rexdex.finance/icon/wanswap/wanETH.png"
     },
     {
       "chainId": 888,
@@ -42,7 +42,7 @@
       "name": "wanBTC",
       "symbol": "wanBTC",
       "decimals": 8,
-      "logoURI": "https://rexdex-token-list.vercel.app/icon/wanswap/wanBTC.png"
+      "logoURI": "https://assets.rexdex.finance/icon/wanswap/wanBTC.png"
     },
     {
       "chainId": 888,
@@ -50,7 +50,7 @@
       "name": "wanUSDT",
       "symbol": "wanUSDT",
       "decimals": 6,
-      "logoURI": "https://rexdex-token-list.vercel.app/icon/wanswap/wanUSDT.png"
+      "logoURI": "https://assets.rexdex.finance/icon/wanswap/wanUSDT.png"
     },
     {
       "chainId": 888,
@@ -58,7 +58,7 @@
       "name": "WWAN",
       "symbol": "WWAN",
       "decimals": 18,
-      "logoURI": "https://rexdex-token-list.vercel.app/icon/wanswap/WWAN.png"
+      "logoURI": "https://assets.rexdex.finance/icon/wanswap/WWAN.png"
     },
     {
       "chainId": 888,
@@ -66,12 +66,12 @@
       "name": "wanUSDC",
       "symbol": "wanUSDC",
       "decimals": 6,
-      "logoURI": "https://rexdex-token-list.vercel.app/icon/wanswap/wanUSDC.png"
+      "logoURI": "https://assets.rexdex.finance/icon/wanswap/wanUSDC.png"
     }
   ],
   "version": {
     "major": 1,
-    "minor": 1,
+    "minor": 2,
     "patch": 0
   }
 }

@@ -30,7 +30,7 @@ const StatContainer = styled.div`
 `
 
 const Wrapper = styled(AutoColumn)<{ showBackground: boolean; bgColor: any }>`
-border-radius:10px;
+border-radius:6px;
   width: 100%;
   overflow: hidden;
   position: relative;
@@ -64,7 +64,7 @@ const TopSection = styled.div`
 const BottomSection = styled.div<{ showBackground: boolean }>`
   padding: 12px 16px;
   opacity: ${({ showBackground }) => (showBackground ? '1' : '0.4')};
-  border-radius: 0 0 10px 10px;
+  border-radius: 0 0 6px 6px;
   display: flex;
   flex-direction: row;
   align-items: baseline;

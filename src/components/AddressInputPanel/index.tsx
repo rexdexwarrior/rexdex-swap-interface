@@ -11,8 +11,8 @@ import { useTranslation } from 'react-i18next'
 const InputPanel = styled.div`
   ${({ theme }) => theme.flexColumnNoWrap}
   position: relative;
-  border-radius:10px;
-  background-color: ${({ theme }) => theme.bg1};
+  border-radius:6px;
+  background-color: transparent;
   z-index: 1;
   width: 100%;
 `
@@ -21,11 +21,11 @@ const ContainerRow = styled.div<{ error: boolean }>`
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius:10px;
-  border: 1px solid ${({ error, theme }) => (error ? theme.red1 : 'transparent')};
+  border-radius:6px;
+  border: 1px solid ${({ error, theme }) => (error ? theme.red1 : 'rgba(255,255,255,0.2)')};
   transition: border-color 300ms ${({ error }) => (error ? 'step-end' : 'step-start')},
     color 500ms ${({ error }) => (error ? 'step-end' : 'step-start')};
-  background-color: ${({ theme }) => theme.bg1};
+  background-color: transparent;
 `
 
 const InputContainer = styled.div`
@@ -39,7 +39,7 @@ const Input = styled.input<{ error?: boolean }>`
   border: none;
   flex: 1 1 auto;
   width: 0;
-  background-color: ${({ theme }) => theme.bg1};
+  background-color: transparent;
   transition: color 300ms ${({ error }) => (error ? 'step-end' : 'step-start')};
   color: ${({ error, theme }) => (error ? theme.red1 : theme.primary1)};
   overflow: hidden;

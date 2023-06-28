@@ -73,7 +73,7 @@ export default function Swap() {
         activate(connector) // a little janky...can't use setError because the connector isn't set
       } 
     })
-  },[])
+  },[activate])
 
   // window.addEventListener('message', function(event) {
   //   if (event.origin === "http://localhost:3000")

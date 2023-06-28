@@ -7,7 +7,7 @@ import { SwapPoolTabs } from '../../components/NavigationTabs'
 import FullPositionCard from '../../components/PositionCard'
 import { useUserHasLiquidityInAllTokens } from '../../data/V1'
 import { useTokenBalancesWithLoadingIndicator } from '../../state/wallet/hooks'
-import { StyledInternalLink, ExternalLink, TYPE, HideSmall } from '../../theme'
+import { StyledInternalLink, TYPE, HideSmall } from '../../theme'
 import { Text } from 'rebass'
 import Card from '../../components/Card'
 import { RowBetween, RowFixed } from '../../components/Row'
@@ -31,7 +31,7 @@ const PageWrapper = styled(AutoColumn)`
 `
 
 const VoteCard = styled(DataCard)`
-  background: radial-gradient(100% 90% at 20% 0%,#41beec 0%,#123471 100%)
+  background: rgb(45,66,69);
   overflow: hidden;
 `
 
@@ -61,6 +61,7 @@ const ResponsiveButtonPrimary = styled(ButtonPrimary)`
 `
 
 const ResponsiveButtonSecondary = styled(ButtonSecondary)`
+
   width: fit-content;
   ${({ theme }) => theme.mediaWidth.upToSmall`
     width: 48%;
@@ -70,7 +71,7 @@ const ResponsiveButtonSecondary = styled(ButtonSecondary)`
 const EmptyProposals = styled.div`
   border: 1px solid ${({ theme }) => theme.text4};
   padding: 16px 12px;
-  border-radius: 10px;
+  border-radius: 6px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -87,13 +88,16 @@ export default function Pool() {
         activate(connector) // a little janky...can't use setError because the connector isn't set
       } 
     })
-  },[])
+  },[activate])
 
   const theme = useContext(ThemeContext)
   const { account } = useActiveWeb3React()
   const { t } = useTranslation()
   // fetch the user's balances of all tracked V2 LP tokens
   const trackedTokenPairs = useTrackedTokenPairs()
+
+  //console.log('trackedTokenPairs', trackedTokenPairs)
+
   // const tokenPairsWithLiquidityTokens = useMemo(
   //   () => trackedTokenPairs.map(tokens => ({ liquidityToken: toV2LiquidityToken(tokens), tokens })),
   //   [trackedTokenPairs]
@@ -120,7 +124,7 @@ export default function Pool() {
     [tokenPairsWithLiquidityTokens, v2PairsBalances]
   )
 
-  // console.debug('liquidityTokensWithBalances', liquidityTokensWithBalances);
+   console.debug('liquidityTokensWithBalances', liquidityTokensWithBalances);
 
   const v2Pairs = usePairs(liquidityTokensWithBalances.map(({ tokens }) => tokens))
   console.debug('v2Pairs', v2Pairs);
@@ -138,8 +142,7 @@ export default function Pool() {
         <SwapPoolTabs active={'pool'} />
 
         <VoteCard>
-          <CardBGImage />
-          <CardNoise />
+
           <CardSection>
             <AutoColumn gap="md">
               <RowBetween>
@@ -150,13 +153,13 @@ export default function Pool() {
                   {t('liquidityHelper')}
                 </TYPE.white>
               </RowBetween>
-              <ExternalLink
+              {/* <ExternalLink
                 style={{ color: 'white', textDecoration: 'underline' }}
                 target="_blank"
                 href="https://docs.wanswap.finance/#/guides/liquidity"
               >
                 <TYPE.white fontSize={14}>{t('readMoreAboutProvidingLiquidity')}</TYPE.white>
-              </ExternalLink>
+              </ExternalLink> */}
             </AutoColumn>
           </CardSection>
           <CardBGImage />
@@ -172,10 +175,10 @@ export default function Pool() {
                 </TYPE.mediumHeader>
               </HideSmall>
               <ButtonRow>
-                <ResponsiveButtonSecondary as={Link} padding="6px 8px" to="/create/WAN">
+                <ResponsiveButtonSecondary as={Link} padding="6px 8px" to="/create/0x01A2947D9E6F58572028fA9fC6A2511646345841">
                   {t('createAPair')}
                 </ResponsiveButtonSecondary>
-                <ResponsiveButtonPrimary id="join-pool-button" as={Link} padding="6px 8px" to="/add/WAN">
+                <ResponsiveButtonPrimary id="join-pool-button" as={Link} padding="6px 8px" to="/add/0x01A2947D9E6F58572028fA9fC6A2511646345841">
                   <Text fontWeight={500} fontSize={16}>
                     {t('addLiquidity')}
                   </Text>

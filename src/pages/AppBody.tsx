@@ -6,9 +6,9 @@ export const BodyWrapper = styled.div`
   position: relative;
   max-width: 600px;
   width: 100%;
-  background: #123471;
-  box-shadow: 0 0 100px #01001de6;
-  border-radius: 10px;
+  background: rgba(0, 0, 0, 0.05);
+  box-shadow: 0px 1px 56px rgba(0,0,0,1);
+  border-radius: 6px;
   padding: 15px;
 `
 
@@ -16,8 +16,8 @@ export const BodyWrapperV1 = styled.div`
   position: relative;
   width: 100%;
   background: rgba(0, 0, 0, 0.05);
-  box-shadow: 0px 0px 50px 0px rgba(0, 0, 0, 0.2);
-  border-radius: 24px;
+  box-shadow: 0px 1px 56px rgba(0,0,0,1);
+  border-radius: 6px;
   border: 1px solid rgba(255, 255, 255, 0.2);
   padding: 15px 0;
   backdrop-filter: blur(10px);
@@ -28,8 +28,8 @@ export const BodyWrapperV2 = styled.div`
   width: ${isMobile ? '100%' : '500px'};
   min-height: 363px;
   
-  box-shadow: 0px 0px 50px 0px rgba(0, 0, 0, 0.2);
-  border-radius: 10px;
+  box-shadow: 0px 1px 56px rgba(0,0,0,1);
+  border-radius: 6px;
   padding: 15px;
   border:1px solid rgba(255,255,255,0.2);
 `
