@@ -73,12 +73,36 @@ export function useApproveCallback(
       return
     }
 
+    // Force to Reset to ZERO for wanUSDT
+    if (amountToApprove.currency.symbol === 'wanUSDT' && currentAllowance && currentAllowance.raw.toString() != '0' && currentAllowance.lessThan(amountToApprove))
+    { 
+      return tokenContract
+      .approve(spender, '0')
+      .then((response: TransactionResponse) => {
+        addTransaction(response, {
+          summary: 'Unapproved ' + amountToApprove.currency.symbol + '. Please refresh and try to approve again',
+          approval: { tokenAddress: token.address, spender: spender }
+        })
+      })
+      .catch((error: Error) => {
+        console.debug('Failed to approve token', error)
+        throw error
+      })
+      
+    }
+
+    
+
+    
     let useExact = false
     const estimatedGas = await tokenContract.estimateGas.approve(spender, MaxUint256).catch(() => {
       // general fallback for tokens who restrict approval amounts
       useExact = true
+
       return tokenContract.estimateGas.approve(spender, amountToApprove.raw.toString())
     })
+
+    
 
     return tokenContract
       .approve(spender, useExact ? amountToApprove.raw.toString() : MaxUint256, {

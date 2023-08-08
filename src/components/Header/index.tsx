@@ -32,7 +32,7 @@ import UniBalanceContent from './UniBalanceContent'
 import usePrevious from '../../hooks/usePrevious'
 import useUSDCPrice from '../../utils/useUSDCPrice'
 import { WASP } from '../../constants'
-import useUniPrice from '../../utils/useUniPrice'
+//import useUniPrice from '../../utils/useUniPrice'
 
 interface AddEthereumChainParameter {
   chainId: string; // A 0x-prefixed hexadecimal string
@@ -122,13 +122,13 @@ const HeaderRow = styled(RowFixed)`
   `};
 `
 
-const HeaderRowMobile = styled(RowFixed)`
-  display:none;
-  ${({ theme }) => theme.mediaWidth.upToExtraSmall`
-   width: 100%;
-   display:block;
-  `};
-`
+// const HeaderRowMobile = styled(RowFixed)`
+//   display:none;
+//   ${({ theme }) => theme.mediaWidth.upToExtraSmall`
+//    width: 100%;
+//    display:block;
+//   `};
+// `
 
 const HeaderLinks = styled(Row)`
   justify-content: center;
@@ -285,41 +285,41 @@ const StyledExternalLink = styled(ExternalLink).attrs({
   }
 
   ${({ theme }) => theme.mediaWidth.upToExtraSmall`
-      display: none;
+      //display: none;
 `}
 `
 
-const StyledExternalLinkMobile = styled(ExternalLink).attrs({
-  activeClassName
-}) <{ isActive?: boolean }>`
-  ${({ theme }) => theme.flexRowNoWrap}
-  align-items: left;
-  border-radius:6px;
-  outline: none;
-  cursor: pointer;
-  text-decoration: none;
-  color: ${({ theme }) => theme.text2};
-  font-size: 1rem;
-  width: fit-content;
-  margin: 0 12px;
-  font-weight: 500;
-  display:none;
-  &.${activeClassName} {
-    border-radius: 6px;
-    font-weight: 600;
-    color: ${({ theme }) => theme.text1};
-  }
+// const StyledExternalLinkMobile = styled(ExternalLink).attrs({
+//   activeClassName
+// }) <{ isActive?: boolean }>`
+//   ${({ theme }) => theme.flexRowNoWrap}
+//   align-items: left;
+//   border-radius:6px;
+//   outline: none;
+//   cursor: pointer;
+//   text-decoration: none;
+//   color: ${({ theme }) => theme.text2};
+//   font-size: 1rem;
+//   width: fit-content;
+//   margin: 0 12px;
+//   font-weight: 500;
+//   display:none;
+//   &.${activeClassName} {
+//     border-radius: 6px;
+//     font-weight: 600;
+//     color: ${({ theme }) => theme.text1};
+//   }
 
-  :hover,
-  :focus {
-    text-decoration: none;
-    color: ${({ theme }) => darken(0.1, theme.text1)};
-  }
+//   :hover,
+//   :focus {
+//     text-decoration: none;
+//     color: ${({ theme }) => darken(0.1, theme.text1)};
+//   }
 
-  ${({ theme }) => theme.mediaWidth.upToExtraSmall`
-      display: block;
-`}
-`
+//   ${({ theme }) => theme.mediaWidth.upToExtraSmall`
+//       display: block;
+// `}
+// `
 
 const NETWORK_LABELS: { [chainId in ChainId]?: string } = {
   [ChainId.RINKEBY]: 'Rinkeby',
@@ -334,8 +334,8 @@ export default function Header() {
 
   const uniPrice = useUSDCPrice(chainId ? WASP[chainId] : undefined)
 
-  const uniPrice2 = useUniPrice();
-  console.log('Rex Price',uniPrice2)
+  // const uniPrice2 = useUniPrice();
+  // console.log('Rex Price',uniPrice2)
 
   const userEthBalance = useETHBalances(account ? [account] : [])?.[account ?? '']
 
@@ -417,11 +417,18 @@ export default function Header() {
             Pool
             {/* {t('pool')} */}
           </StyledNavLink>
+
+          <StyledExternalLink id={`stake-nav-link`} href={'https://rexdex.finance'}>
+            Farm / Stake
+            {/* <span style={{ fontSize: '11px' }}>↗</span> */}
+          </StyledExternalLink>
           
           <StyledExternalLink id={`stake-nav-link`} href={'https://info.rexdex.finance'}>
             {t('statistics')} 
             {/* <span style={{ fontSize: '11px' }}>↗</span> */}
           </StyledExternalLink>
+
+          
 
           
           {/* <StyledExternalLink id={`stake-nav-link`} href={'https://auction.wanswap.finance/'}>
@@ -436,13 +443,13 @@ export default function Header() {
         </HeaderLinks>
 
       </HeaderRow>
-      <HeaderRowMobile>
+      {/* <HeaderRowMobile>
         <HeaderLinks>
           <StyledExternalLinkMobile id={`stake-nav-link`} href={'https://info.rexdex.finance'}>
             {t('statistics')} <span style={{ fontSize: '11px' }}>↗</span>
           </StyledExternalLinkMobile>
         </HeaderLinks>
-      </HeaderRowMobile>
+      </HeaderRowMobile> */}
       <HeaderControls>
         <HeaderElement>
           <HideSmall>
@@ -508,7 +515,7 @@ export default function Header() {
                 REX
               </UNIAmount>
               <CardNoise />
-              <PriceText>${uniPrice?.toFixed(4) ?? '-'}</PriceText>
+              <PriceText>${uniPrice?.toFixed(5) ?? '-'}</PriceText>
             </UNIWrapper>
           )}
           <AccountElement active={!!account} style={{ pointerEvents: 'auto' }} >

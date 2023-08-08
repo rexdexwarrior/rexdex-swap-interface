@@ -343,7 +343,7 @@ export default function Swap() {
   return (
     <>
       <TokenWarningModal
-        isOpen={urlLoadedTokens.length > 0 && urlLoadedTokens[0].symbol !== 'wanUSDT' && urlLoadedTokens[0].symbol !== 'REX' && urlLoadedTokens[0].symbol !== 'vZOO' && !dismissTokenWarning}
+        isOpen={urlLoadedTokens.length > 0 && urlLoadedTokens[0].symbol !== 'wanUSDT' && urlLoadedTokens[0].symbol !== 'REX' && urlLoadedTokens[0].symbol !== 'vZOO' && urlLoadedTokens[0].symbol !== 'wanXRP' && !dismissTokenWarning}
         tokens={urlLoadedTokens}
         onConfirm={handleConfirmTokenWarning}
       />

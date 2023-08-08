@@ -291,10 +291,10 @@ export function useDefaultsFromURLSearch():
     //   parsedQs.outputCurrency = '0x11e77E27Af5539872efEd10abaA0b408cfd9fBBD' // wanUSDT
       
     // }
-
+    // Default Pair
     parsedQs.inputCurrency = '0x01A2947D9E6F58572028fA9fC6A2511646345841' // REX
     if (!parsedQs.outputCurrency) {
-      parsedQs.outputCurrency = '0xf46F29950116cc374868A981861CA4F942eD7269' // vZOO
+      parsedQs.outputCurrency = '0xf665e0e3e75d16466345e1129530ec28839efaea' // wanXRP
     }
     const parsed = queryParametersToSwapState(parsedQs)
     //console.log('parsedQs',parsed)

@@ -56,7 +56,7 @@ export default function UniBalanceContent({ setShowUniBalanceModal }: { setShowU
   const uniPrice = useUSDCPrice(uni)
 
   //console.log(uniPrice)
-  console.log('uniPrice',uniPrice)
+  //console.log('uniPrice',uniPrice)
   const blockTimestamp = useCurrentBlockTimestamp()
   // const unclaimedUni = useTokenBalance(useMerkleDistributorContract()?.address, uni)
   const circulation: TokenAmount | undefined = useMemo(
@@ -115,7 +115,7 @@ export default function UniBalanceContent({ setShowUniBalanceModal }: { setShowU
           <AutoColumn gap="md">
             <RowBetween>
               <TYPE.white color="white">{t('waspPrice')}</TYPE.white>
-              <TYPE.white color="white">${uniPrice?.toFixed(4) ?? '-'}</TYPE.white>
+              <TYPE.white color="white">${uniPrice?.toFixed(5) ?? '-'}</TYPE.white>
             </RowBetween>
             <RowBetween>
               <TYPE.white color="white">{t('waspInCirculation')}</TYPE.white>

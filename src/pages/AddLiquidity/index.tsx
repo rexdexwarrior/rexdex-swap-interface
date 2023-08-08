@@ -1,7 +1,7 @@
 import { BigNumber } from '@ethersproject/bignumber'
 import { TransactionResponse } from '@ethersproject/providers'
 import { Currency, currencyEquals, ETHER, TokenAmount, WETH } from '@rexdexwarrior/sdk'
-import React, { useCallback, useContext, useState } from 'react'
+import React, { useCallback, useContext, useState, useEffect } from 'react'
 import { Plus } from 'react-feather'
 import ReactGA from 'react-ga'
 import { RouteComponentProps } from 'react-router-dom'
@@ -40,6 +40,10 @@ import { currencyId } from '../../utils/currencyId'
 import { PoolPriceBar } from './PoolPriceBar'
 import { useTranslation } from 'react-i18next'
 
+// // For auto connect //
+import { UnsupportedChainIdError, useWeb3React } from '@web3-react-wan/core'
+import { SUPPORTED_WALLETS } from '../../constants'
+
 export default function AddLiquidity({
   match: {
     params: { currencyIdA, currencyIdB }
@@ -48,6 +52,18 @@ export default function AddLiquidity({
 }: RouteComponentProps<{ currencyIdA?: string; currencyIdB?: string }>) {
   const { account, chainId, library } = useActiveWeb3React()
   const theme = useContext(ThemeContext)
+
+  const { activate } = useWeb3React();
+   
+  useEffect(() => {
+    const connector = SUPPORTED_WALLETS['METAMASK'].connector;
+
+    activate(connector, undefined, true).catch(error => {
+      if (error instanceof UnsupportedChainIdError) {
+        activate(connector) // a little janky...can't use setError because the connector isn't set
+      } 
+    })
+  },[activate])
 
   const currencyA = useCurrency(currencyIdA)
   const currencyB = useCurrency(currencyIdB)
