@@ -294,7 +294,7 @@ export function useDefaultsFromURLSearch():
     // Default Pair
     parsedQs.inputCurrency = '0x01A2947D9E6F58572028fA9fC6A2511646345841' // REX
     if (!parsedQs.outputCurrency) {
-      parsedQs.outputCurrency = '0xf665e0e3e75d16466345e1129530ec28839efaea' // wanXRP
+      parsedQs.outputCurrency = '0x79d745178bc271a1f29f8fbe9251dfc512db842c' // wanADA
     }
     const parsed = queryParametersToSwapState(parsedQs)
     //console.log('parsedQs',parsed)

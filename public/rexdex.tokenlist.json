@@ -79,15 +79,23 @@
     {
       "chainId": 888,
       "address": "0x79d745178bc271a1f29f8fbe9251dfc512db842c",
-      "name": "ADA",
-      "symbol": "ADA",
+      "name": "wanADA",
+      "symbol": "wanADA",
       "decimals": 6,
       "logoURI": "https://assets.rexdex.finance/icon/wanswap/wanADA.png"
+    },
+    {
+      "chainId": 888,
+      "address": "0x6534980d2df89377799bD15d38861E851C9b761d",
+      "name": "wanHOSKY",
+      "symbol": "wanHOSKY",
+      "decimals": 0,
+      "logoURI": "https://assets.rexdex.finance/icon/wanswap/wanHOSKY.png"
     }
   ],
   "version": {
     "major": 1,
-    "minor": 4,
+    "minor": 6,
     "patch": 0
   }
 }
